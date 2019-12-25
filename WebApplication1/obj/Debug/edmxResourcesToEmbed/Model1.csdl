@@ -1,0 +1,1829 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EJU.HRModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Core_Attachment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="RefID" Type="Guid" />
+    <Property Name="FileSubject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FileName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Extension" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FilePath" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ContentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Length" Type="Int32" />
+    <Property Name="ByteContent" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="TypeCode" Type="Int32" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="IsDelete" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Core_Dict">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="DictName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DictCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DictValue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="IsDelete" Type="Int32" />
+    <Property Name="ParentID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="Core_Module">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="ModuleCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModuleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModuleUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ParentModuleID" Type="Guid" />
+    <Property Name="ModuleImg" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ModuleDeep" Type="Int32" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="IsDelete" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Core_Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="RoleCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoleDesc" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="IsDelete" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Core_RoleModule">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="RoleID" Type="Guid" />
+    <Property Name="ModuleID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="Core_User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserSex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="IsDelete" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Core_UserArea">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AreaId" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsDelete" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Core_UserRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserID" Type="Guid" />
+    <Property Name="RoleID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Url" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="RefUrl" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="RequestType" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="SessionId" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="Source" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Method" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="Ip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HeaderContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EvaluationResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cpfs" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="xj" Type="Int32" />
+    <Property Name="gznl1" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gznl2" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gznl3" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gznl4" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gzgx1" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gzgx2" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gzgx3" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gzgx4" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gzgx5" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gzgx6" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gzgx7" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gzgx8" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gzgx9" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gzjz1" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gzjz2" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gzjz3" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gzjz4" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gzjz5" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="gzjz6" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="LastFromCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastFromFileName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="qyname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="HR_AreaLeader_2016_old">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserCode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_Comment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImgUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserNickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contents" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Star" Type="Int32" />
+    <Property Name="CommentType" Type="Int32" />
+    <Property Name="OperationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Score" Type="Int32" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="Time" Type="DateTime" Precision="0" />
+    <Property Name="Project" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Raking" Type="Int32" />
+    <Property Name="RakingCount" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="HR_Course">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tobject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsCompulsory" Type="Int32" />
+    <Property Name="beizhu" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="HR_Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImgUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BloodType" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HR_Exam">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="RequireType" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="Project" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Result" Type="Int32" />
+    <Property Name="Raking" Type="Int32" />
+    <Property Name="JoinCount" Type="Int32" />
+    <Property Name="GroupRaking" Type="Int32" />
+    <Property Name="GroupJoinCount" Type="Int32" />
+    <Property Name="Organization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExamType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Score" Type="Int32" />
+    <Property Name="InterviewScore" Type="Int32" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="AreaRaking" Type="Int32" />
+    <Property Name="AreaJoinCount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HR_Question">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserCode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="FromName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="HR_Record">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Sort" Type="Int32" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="PartOf" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="HR_SMSInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CacheKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="HR_Teacher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TeacherCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TeacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StartTime" Type="DateTime" Precision="0" />
+    <Property Name="EndTime" Type="DateTime" Precision="0" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Score" Type="Int32" />
+    <Property Name="Raking" Type="Int32" />
+    <Property Name="RakingCount" Type="Int32" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HR_Train">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TrainType" Type="Int32" />
+    <Property Name="Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Project" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Score" Type="Int32" />
+    <Property Name="IsSign" Type="Boolean" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="pwx_dictionary_type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="type_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="type_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="pwx_dictionary_value">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="type_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dic_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dic_value" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="sort_no" Type="Int32" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="pwx_level_info">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="level_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="level_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="min_value" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="max_value" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="level_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="pwx_sms_verification_code">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="phone_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="verification_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="pwx_user_energy_consume">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="consume_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="consume_energy" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="pwx_user_energy_recharge">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="pay_amount" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="pay_status" Type="Int32" />
+    <Property Name="wx_trace_no" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="wx_confirm_time" Type="DateTime" Precision="3" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="pwx_user_info">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="open_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="user_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="user_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_block_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_block_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="user_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_status" Type="Int32" />
+    <Property Name="can_use_energy" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="total_energy" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="pwx_user_photo_info">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="photo_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="photo_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="photo_shoot_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="photo_shoot_address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="photo_shoot_device" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="photo_shoot_device_define" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="photo_shoot_device_model" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="photo_desc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="small_picture_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="middle_picture_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="big_picture_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="like_num" Type="Int32" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="pwx_user_photo_share">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="photo_id" Type="Int32" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="pwx_user_visit_log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="visit_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="T_cux_hr_all_employee_weixin_v">
+    <Key>
+      <PropertyRef Name="Employee_number" />
+    </Key>
+    <Property Name="Person_ID" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Employee_number" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="sex" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="National_Identifier" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Person_Type_ID" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Date_Of_Birth" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Town_Of_Birth" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Office_Date" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Hukou_Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Hukou_Postcode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Live_Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Live_Postcode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Emergent_People" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Emergent_Phone" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Relation_Code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Fund_Number" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Email_Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Unit_Code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Join_Again" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile_Code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Family_Code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Marital_Status" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Party_Code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Nation_Code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Health_Code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="People_Group_ID" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Hukou" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Phf_Area" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Person_Level" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Person_Edu" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Person_Education" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Hukou_Local" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Hukou_Type" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Work_Local" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Management_Unit" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Job_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Start_Date" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Org_name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_ReturnWrite">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="S_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Flag" Type="Int32" />
+    <Property Name="IsMore" Type="Int32" />
+    <Property Name="Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="A_EMPLOYEE_WORK_EXPERIENCE_b">
+    <Key>
+      <PropertyRef Name="Job_Code" />
+      <PropertyRef Name="ts" />
+    </Key>
+    <Property Name="Employee_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="lead_Employee_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="lead_last_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="lead_Job_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Date_From" Type="DateTime" Precision="0" />
+    <Property Name="Date_to" Type="DateTime" Precision="0" />
+    <Property Name="Department_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KH_NUM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KH_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Job_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ts" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="A_EMPLOYEE_WORK_EXPERIENCE_h">
+    <Key>
+      <PropertyRef Name="job_code" />
+      <PropertyRef Name="ts" />
+    </Key>
+    <Property Name="Employee_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Department_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KH_NUM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KH_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Date_From" Type="DateTime" Precision="0" />
+    <Property Name="Date_to" Type="DateTime" Precision="0" />
+    <Property Name="job_code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ts" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="A_EMPLOYEE_WORK_EXPERIENCE_lead">
+    <Key>
+      <PropertyRef Name="jobtype" />
+      <PropertyRef Name="ts" />
+    </Key>
+    <Property Name="lead_Employee_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="lead_Last_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Department_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KH_NUM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KH_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Date_From" Type="DateTime" Precision="0" />
+    <Property Name="job_code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Date_to" Type="DateTime" Precision="0" />
+    <Property Name="jobtype" Type="Int32" Nullable="false" />
+    <Property Name="ts" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="A_EMPLOYEE_WORK_EXPERIENCE_lead_top">
+    <Key>
+      <PropertyRef Name="ts" />
+    </Key>
+    <Property Name="lead_Employee_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="top_lead_Employee_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="top_lead_last_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Job_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Date_From" Type="DateTime" Precision="0" />
+    <Property Name="Date_to" Type="DateTime" Precision="0" />
+    <Property Name="Department_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KH_NUM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KH_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ts" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="a_hr_yx_echelon_employee">
+    <Key>
+      <PropertyRef Name="NATIONAL_ID" />
+    </Key>
+    <Property Name="NATIONAL_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="A_V_SALES_SERVICERECORD">
+    <Key>
+      <PropertyRef Name="qyName" />
+      <PropertyRef Name="qyRank" />
+      <PropertyRef Name="allRank" />
+      <PropertyRef Name="ddNum" />
+      <PropertyRef Name="ddArea" />
+      <PropertyRef Name="ddMoney" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="salesName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="personStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="vipCustomers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="djs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="projectNames" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="jobCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="qyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="qyRank" Type="Int32" Nullable="false" />
+    <Property Name="allRank" Type="Int32" Nullable="false" />
+    <Property Name="ddNum" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ddArea" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ddMoney" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="A_V_SALES_SERVICERECORD1">
+    <Key>
+      <PropertyRef Name="qyName" />
+      <PropertyRef Name="qyRank" />
+      <PropertyRef Name="allRank" />
+      <PropertyRef Name="ddNum" />
+      <PropertyRef Name="ddArea" />
+      <PropertyRef Name="ddMoney" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="salesName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="personStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="vipCustomers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="djs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="projectNames" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="jobCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="qyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="qyRank" Type="Int32" Nullable="false" />
+    <Property Name="allRank" Type="Int32" Nullable="false" />
+    <Property Name="ddNum" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ddArea" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ddMoney" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="jobcode1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="A_V_SALES_SERVICERECORD2">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="personStatus" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="salesName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="personStatus" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="vipCustomer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="djs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="projectname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="leadSalesName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="jobCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="qyname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="qyrank" Type="Int32" />
+    <Property Name="allrank" Type="Int32" />
+    <Property Name="ddNum" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ddArea" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ddMoney" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="job_short_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Core_UserCity">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CityId" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="IsDelete" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="EvaluationResult_20180206">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cpfs" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="xj" Type="Int32" />
+    <Property Name="gznl1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gznl2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gznl3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gznl4" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gzgx1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gzgx2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gzgx3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gzgx4" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gzgx5" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gzgx6" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gzgx7" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gzgx8" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gzgx9" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gzjz1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gzjz2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gzjz3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gzjz4" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gzjz5" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="gzjz6" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="LastFromCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastFromFileName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="qyname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="EvaluationResult_New">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Tobject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cpfs" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="xj" Type="Int32" />
+    <Property Name="LastFromCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastFromFileName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="qyname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="t1" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t2" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t3" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t4" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t5" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t6" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t7" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t8" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t9" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t10" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t11" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t12" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t13" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t14" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t15" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t16" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t17" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t18" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t19" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t20" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t21" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t22" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t23" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t24" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t25" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t26" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t27" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t28" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t29" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t30" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t31" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t32" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t33" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t34" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t35" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t36" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t37" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t38" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t39" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t40" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t41" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t42" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t43" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t44" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t45" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t46" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t47" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t48" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t49" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="t50" Type="Decimal" Precision="18" Scale="3" />
+  </EntityType>
+  <EntityType Name="HR_AreaLeader">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="IsDelete" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserCode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_AreaLeader_old_20170901">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="IsDelete" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserCode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hr_cric_echelon_employee">
+    <Key>
+      <PropertyRef Name="ECHELON_ID" />
+    </Key>
+    <Property Name="ECHELON_ID" Type="Int32" Nullable="false" />
+    <Property Name="EMPLOYEE_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMPLOYEE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NATIONAL_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="echelon_status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="hr_cric_echelon_name">
+    <Key>
+      <PropertyRef Name="ECHELON_ID" />
+    </Key>
+    <Property Name="ECHELON_ID" Type="Int32" Nullable="false" />
+    <Property Name="ECHELON_ALL_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ECHELON_SHORT_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ECHELON_VERSION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ECHELON_SORT" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HR_CX_Manager_Month_All">
+    <Key>
+      <PropertyRef Name="m1" />
+      <PropertyRef Name="m2" />
+      <PropertyRef Name="m3" />
+      <PropertyRef Name="m4" />
+      <PropertyRef Name="m5" />
+      <PropertyRef Name="m6" />
+      <PropertyRef Name="m7" />
+      <PropertyRef Name="m8" />
+      <PropertyRef Name="m9" />
+      <PropertyRef Name="m10" />
+      <PropertyRef Name="m11" />
+      <PropertyRef Name="m12" />
+    </Key>
+    <Property Name="year" Type="Int32" />
+    <Property Name="m1" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m2" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m3" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m4" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m5" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m6" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m7" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m8" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m9" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m10" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m11" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m12" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_CX_Manager_Month_Area">
+    <Key>
+      <PropertyRef Name="m1" />
+      <PropertyRef Name="m2" />
+      <PropertyRef Name="m3" />
+      <PropertyRef Name="m4" />
+      <PropertyRef Name="m5" />
+      <PropertyRef Name="m6" />
+      <PropertyRef Name="m7" />
+      <PropertyRef Name="m8" />
+      <PropertyRef Name="m9" />
+      <PropertyRef Name="m10" />
+      <PropertyRef Name="m11" />
+      <PropertyRef Name="m12" />
+    </Key>
+    <Property Name="qy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="qy_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="m1" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m2" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m3" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m4" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m5" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m6" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m7" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m8" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m9" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m10" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m11" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m12" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_CX_Manager_Month_Project">
+    <Key>
+      <PropertyRef Name="m1" />
+      <PropertyRef Name="m2" />
+      <PropertyRef Name="m3" />
+      <PropertyRef Name="m4" />
+      <PropertyRef Name="m5" />
+      <PropertyRef Name="m6" />
+      <PropertyRef Name="m7" />
+      <PropertyRef Name="m8" />
+      <PropertyRef Name="m9" />
+      <PropertyRef Name="m10" />
+      <PropertyRef Name="m11" />
+      <PropertyRef Name="m12" />
+    </Key>
+    <Property Name="Employee_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="projectcode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="topprojectname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="m1" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m2" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m3" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m4" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m5" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m6" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m7" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m8" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m9" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m10" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m11" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m12" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_CX_Manager_Quear_All">
+    <Key>
+      <PropertyRef Name="q1" />
+      <PropertyRef Name="q2" />
+      <PropertyRef Name="q3" />
+      <PropertyRef Name="q4" />
+    </Key>
+    <Property Name="year" Type="Int32" />
+    <Property Name="q1" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="q2" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="q3" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="q4" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_CX_Manager_Quear_Area">
+    <Key>
+      <PropertyRef Name="q1" />
+      <PropertyRef Name="q2" />
+      <PropertyRef Name="q3" />
+      <PropertyRef Name="q4" />
+    </Key>
+    <Property Name="qy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="qy_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="q1" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="q2" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="q3" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="q4" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_CX_Manager_Year_All">
+    <Key>
+      <PropertyRef Name="year13" />
+      <PropertyRef Name="year14" />
+      <PropertyRef Name="year15" />
+      <PropertyRef Name="year16" />
+      <PropertyRef Name="year17" />
+      <PropertyRef Name="year18" />
+    </Key>
+    <Property Name="year13" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year14" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year15" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year16" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year17" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year18" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year19" Type="Decimal" Precision="38" Scale="6" />
+    <Property Name="year20" Type="Decimal" Precision="38" Scale="6" />
+  </EntityType>
+  <EntityType Name="HR_CX_Manager_Year_Area">
+    <Key>
+      <PropertyRef Name="year13" />
+      <PropertyRef Name="year14" />
+      <PropertyRef Name="year15" />
+      <PropertyRef Name="year16" />
+      <PropertyRef Name="year17" />
+      <PropertyRef Name="year18" />
+    </Key>
+    <Property Name="qy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="qy_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="year13" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year14" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year15" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year16" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year17" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year18" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year19" Type="Decimal" Precision="38" Scale="6" />
+    <Property Name="year20" Type="Decimal" Precision="38" Scale="6" />
+  </EntityType>
+  <EntityType Name="HR_CX_Manager_Year_Project">
+    <Key>
+      <PropertyRef Name="year13" />
+      <PropertyRef Name="year14" />
+      <PropertyRef Name="year15" />
+      <PropertyRef Name="year16" />
+      <PropertyRef Name="year17" />
+      <PropertyRef Name="year18" />
+    </Key>
+    <Property Name="Employee_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="projectcode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="topprojectname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="year13" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year14" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year15" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year16" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year17" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year18" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year19" Type="Decimal" Precision="38" Scale="6" />
+    <Property Name="year20" Type="Decimal" Precision="38" Scale="6" />
+  </EntityType>
+  <EntityType Name="HR_Data_AreaDDMonthAVGForYear">
+    <Key>
+      <PropertyRef Name="type" />
+      <PropertyRef Name="m1" />
+      <PropertyRef Name="m2" />
+      <PropertyRef Name="m3" />
+      <PropertyRef Name="m4" />
+      <PropertyRef Name="m5" />
+      <PropertyRef Name="m6" />
+      <PropertyRef Name="m7" />
+      <PropertyRef Name="m8" />
+      <PropertyRef Name="m9" />
+      <PropertyRef Name="m10" />
+      <PropertyRef Name="m11" />
+      <PropertyRef Name="m12" />
+    </Key>
+    <Property Name="qy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="type" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="m1" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m2" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m3" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m4" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m5" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m6" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m7" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m8" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m9" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m10" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m11" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m12" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_Data_AreaDDQuarterAVGForYear">
+    <Key>
+      <PropertyRef Name="type" />
+      <PropertyRef Name="q1" />
+      <PropertyRef Name="q2" />
+      <PropertyRef Name="q3" />
+      <PropertyRef Name="q4" />
+    </Key>
+    <Property Name="qy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="type" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="q1" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="q2" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="q3" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="q4" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_Data_AreaDDYearAVGForYear">
+    <Key>
+      <PropertyRef Name="type" />
+      <PropertyRef Name="year13" />
+      <PropertyRef Name="year14" />
+      <PropertyRef Name="year15" />
+      <PropertyRef Name="year16" />
+      <PropertyRef Name="year17" />
+      <PropertyRef Name="year18" />
+    </Key>
+    <Property Name="qy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="type" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="year13" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="year14" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="year15" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="year16" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="year17" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="year18" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="year19" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="year20" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="HR_Data_PeopleDDSumListForYear">
+    <Key>
+      <PropertyRef Name="type" />
+      <PropertyRef Name="m1" />
+      <PropertyRef Name="m2" />
+      <PropertyRef Name="m3" />
+      <PropertyRef Name="m4" />
+      <PropertyRef Name="m5" />
+      <PropertyRef Name="m6" />
+      <PropertyRef Name="m7" />
+      <PropertyRef Name="m8" />
+      <PropertyRef Name="m9" />
+      <PropertyRef Name="m10" />
+      <PropertyRef Name="m11" />
+      <PropertyRef Name="m12" />
+    </Key>
+    <Property Name="user_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dd_year" Type="Int32" />
+    <Property Name="type" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="m1" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m2" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m3" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m4" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m5" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m6" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m7" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m8" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m9" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m10" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m11" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m12" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_Data_ProjectDDMonthAVGForYear">
+    <Key>
+      <PropertyRef Name="type" />
+      <PropertyRef Name="m1" />
+      <PropertyRef Name="m2" />
+      <PropertyRef Name="m3" />
+      <PropertyRef Name="m4" />
+      <PropertyRef Name="m5" />
+      <PropertyRef Name="m6" />
+      <PropertyRef Name="m7" />
+      <PropertyRef Name="m8" />
+      <PropertyRef Name="m9" />
+      <PropertyRef Name="m10" />
+      <PropertyRef Name="m11" />
+      <PropertyRef Name="m12" />
+    </Key>
+    <Property Name="jobcode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="dd_year" Type="Int32" />
+    <Property Name="type" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="m1" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m2" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m3" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m4" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m5" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m6" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m7" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m8" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m9" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m10" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m11" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="m12" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_Data_ProjectDDQuarterAVGForYear">
+    <Key>
+      <PropertyRef Name="type" />
+      <PropertyRef Name="q1" />
+      <PropertyRef Name="q2" />
+      <PropertyRef Name="q3" />
+      <PropertyRef Name="q4" />
+    </Key>
+    <Property Name="jobcode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="type" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="q1" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="q2" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="q3" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="q4" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_Data_ProjectDDYearAVGForYear">
+    <Key>
+      <PropertyRef Name="type" />
+      <PropertyRef Name="year13" />
+      <PropertyRef Name="year14" />
+      <PropertyRef Name="year15" />
+      <PropertyRef Name="year16" />
+      <PropertyRef Name="year17" />
+      <PropertyRef Name="year18" />
+    </Key>
+    <Property Name="jobcode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="year13" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="year14" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="year15" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="year16" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="year17" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="year18" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="year19" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="year20" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="HR_Data_ProjectRaking">
+    <Key>
+      <PropertyRef Name="topprojectname" />
+    </Key>
+    <Property Name="num" Type="Int64" />
+    <Property Name="money" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="user_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="topprojectname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dd_year" Type="Int32" />
+    <Property Name="count" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HR_DD_Manager_Month_All">
+    <Key>
+      <PropertyRef Name="m1" />
+      <PropertyRef Name="m2" />
+      <PropertyRef Name="m3" />
+      <PropertyRef Name="m4" />
+      <PropertyRef Name="m5" />
+      <PropertyRef Name="m6" />
+      <PropertyRef Name="m7" />
+      <PropertyRef Name="m8" />
+      <PropertyRef Name="m9" />
+      <PropertyRef Name="m10" />
+      <PropertyRef Name="m11" />
+      <PropertyRef Name="m12" />
+    </Key>
+    <Property Name="year" Type="Int32" />
+    <Property Name="m1" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m2" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m3" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m4" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m5" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m6" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m7" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m8" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m9" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m10" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m11" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m12" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_DD_Manager_Month_Area">
+    <Key>
+      <PropertyRef Name="m1" />
+      <PropertyRef Name="m2" />
+      <PropertyRef Name="m3" />
+      <PropertyRef Name="m4" />
+      <PropertyRef Name="m5" />
+      <PropertyRef Name="m6" />
+      <PropertyRef Name="m7" />
+      <PropertyRef Name="m8" />
+      <PropertyRef Name="m9" />
+      <PropertyRef Name="m10" />
+      <PropertyRef Name="m11" />
+      <PropertyRef Name="m12" />
+    </Key>
+    <Property Name="qy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="qy_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="m1" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m2" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m3" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m4" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m5" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m6" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m7" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m8" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m9" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m10" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m11" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m12" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_DD_Manager_Month_Project">
+    <Key>
+      <PropertyRef Name="m1" />
+      <PropertyRef Name="m2" />
+      <PropertyRef Name="m3" />
+      <PropertyRef Name="m4" />
+      <PropertyRef Name="m5" />
+      <PropertyRef Name="m6" />
+      <PropertyRef Name="m7" />
+      <PropertyRef Name="m8" />
+      <PropertyRef Name="m9" />
+      <PropertyRef Name="m10" />
+      <PropertyRef Name="m11" />
+      <PropertyRef Name="m12" />
+    </Key>
+    <Property Name="Employee_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="projectcode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="topprojectname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="m1" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m2" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m3" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m4" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m5" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m6" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m7" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m8" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m9" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m10" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m11" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="m12" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_DD_Manager_Quear_All">
+    <Key>
+      <PropertyRef Name="q1" />
+      <PropertyRef Name="q2" />
+      <PropertyRef Name="q3" />
+      <PropertyRef Name="q4" />
+    </Key>
+    <Property Name="year" Type="Int32" />
+    <Property Name="q1" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="q2" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="q3" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="q4" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_DD_Manager_Quear_Area">
+    <Key>
+      <PropertyRef Name="q1" />
+      <PropertyRef Name="q2" />
+      <PropertyRef Name="q3" />
+      <PropertyRef Name="q4" />
+    </Key>
+    <Property Name="qy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="qy_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="q1" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="q2" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="q3" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="q4" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_DD_Manager_Year_All">
+    <Key>
+      <PropertyRef Name="year13" />
+      <PropertyRef Name="year14" />
+      <PropertyRef Name="year15" />
+      <PropertyRef Name="year16" />
+      <PropertyRef Name="year17" />
+      <PropertyRef Name="year18" />
+    </Key>
+    <Property Name="year13" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year14" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year15" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year16" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year17" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year18" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year19" Type="Decimal" Precision="38" Scale="6" />
+    <Property Name="year20" Type="Decimal" Precision="38" Scale="6" />
+  </EntityType>
+  <EntityType Name="HR_DD_Manager_Year_Area">
+    <Key>
+      <PropertyRef Name="year13" />
+      <PropertyRef Name="year14" />
+      <PropertyRef Name="year15" />
+      <PropertyRef Name="year16" />
+      <PropertyRef Name="year17" />
+      <PropertyRef Name="year18" />
+    </Key>
+    <Property Name="qy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="qy_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="year13" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year14" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year15" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year16" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year17" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year18" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year19" Type="Decimal" Precision="38" Scale="6" />
+    <Property Name="year20" Type="Decimal" Precision="38" Scale="6" />
+  </EntityType>
+  <EntityType Name="HR_DD_Manager_Year_Project">
+    <Key>
+      <PropertyRef Name="year13" />
+      <PropertyRef Name="year14" />
+      <PropertyRef Name="year15" />
+      <PropertyRef Name="year16" />
+      <PropertyRef Name="year17" />
+      <PropertyRef Name="year18" />
+    </Key>
+    <Property Name="Employee_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="projectcode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="topprojectname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="year13" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year14" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year15" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year16" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year17" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year18" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="year19" Type="Decimal" Precision="38" Scale="6" />
+    <Property Name="year20" Type="Decimal" Precision="38" Scale="6" />
+  </EntityType>
+  <EntityType Name="HR_etl_employee_info">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="EMPLOYEE_NUMBER" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="EMPLOYEE_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMPLOYEE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SEX" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="NATIONAL_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DATE_OF_BIRTH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EJU_WORKTIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HS_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HS_DESC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DEPT_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DEPT_DESC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PJ_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PJ_DESC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KH_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KH_DESC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ORG_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ORG_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="JOBNAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="JOBCLASS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MEANING" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMP_STATU" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="sybid" Type="Int32" />
+    <Property Name="qyid" Type="Int32" />
+    <Property Name="qyname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="salary_achievement" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="HR_Teacher_2017">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TeacherCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TeacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StartTime" Type="DateTime" Precision="0" />
+    <Property Name="EndTime" Type="DateTime" Precision="0" />
+    <Property Name="UpdateEndTime" Type="DateTime" Precision="0" />
+    <Property Name="ActualStartTime" Type="DateTime" Precision="0" />
+    <Property Name="ActualEndTime" Type="DateTime" Precision="0" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="IsEnd" Type="Int32" />
+    <Property Name="InputEndDate" Type="DateTime" Precision="0" />
+    <Property Name="ActualEndDate" Type="DateTime" Precision="3" />
+    <Property Name="ParID" Type="Guid" />
+    <Property Name="LastFromCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastFromFileName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="qyname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="qyname2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HR_Teacher_Select">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsEnd" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="User_Sex" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="User_ORG_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="User_JOBNAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="User_EJU_WORKTIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TeacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TeacherCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Teacher_Sex" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Teacher_ORG_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Teacher_JOBNAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="First_Job_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsLeave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StartTime" Type="DateTime" Precision="0" />
+    <Property Name="EndTime" Type="DateTime" Precision="0" />
+    <Property Name="UpdateEndTime" Type="DateTime" Precision="0" />
+    <Property Name="ActualStartTime" Type="DateTime" Precision="0" />
+    <Property Name="ActualEndTime" Type="DateTime" Precision="0" />
+    <Property Name="teachingMonth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="teachingResult" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="teachingComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="User_avgnum" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Teacher_avgnum" Type="Decimal" Precision="5" Scale="2" />
+  </EntityType>
+  <EntityType Name="hr_yx_echelon_employee">
+    <Key>
+      <PropertyRef Name="ECHELON_ID" />
+    </Key>
+    <Property Name="ECHELON_ID" Type="Int32" Nullable="false" />
+    <Property Name="EMPLOYEE_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMPLOYEE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NATIONAL_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="echelon_status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="hr_yx_echelon_name">
+    <Key>
+      <PropertyRef Name="ECHELON_ID" />
+    </Key>
+    <Property Name="ECHELON_ID" Type="Int32" Nullable="false" />
+    <Property Name="ECHELON_ALL_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ECHELON_SHORT_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ECHELON_VERSION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ECHELON_SORT" Type="Int32" />
+  </EntityType>
+  <EntityType Name="jianli_Education_Experience">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee_Id" Type="Int32" />
+    <Property Name="Start_Date" Type="DateTime" Precision="0" />
+    <Property Name="End_Date" Type="DateTime" Precision="0" />
+    <Property Name="School_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Major" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Certificate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatePerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatePerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeletePerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="STATUS" Type="Int32" />
+    <Property Name="PERSON_ANALYSIS_ID" Type="Int32" />
+    <Property Name="ID_FLEX_NUM" Type="Int32" />
+  </EntityType>
+  <EntityType Name="jianli_Employee_Information">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Employee_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sex" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="Native" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Nation" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Birth_Date" Type="DateTime" Precision="0" />
+    <Property Name="Identity_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Politics_Status" Type="Int32" />
+    <Property Name="Highest_Degree" Type="Int32" />
+    <Property Name="Graduate_School" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Marital_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Birth_Condition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Domicile_Place" Type="Int32" />
+    <Property Name="Domicile_Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Domicile_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Domicile_Postcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Now_Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Now_Postcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telephone_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Emergency_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Emergency_Relation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Emergency_Mobile" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Housing_Fund_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsHas_OtherCompanyRelation" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="OtherCompany_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="BreakRule_BeFired" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="Fired_Reason" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsReinstated" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="Reinstated_Company" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ResidencePermit_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ResidencePermit_Date_Start" Type="DateTime" Precision="0" />
+    <Property Name="ResidencePermit_Date_End" Type="DateTime" Precision="0" />
+    <Property Name="PhotoURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="VerifierId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VerifyTime" Type="DateTime" Precision="3" />
+    <Property Name="UserType" Type="Int32" />
+    <Property Name="Dept_Id" Type="Int32" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <Property Name="Join_Time" Type="DateTime" Precision="3" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatePerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatePerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeletePerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VerifierReason" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CorrespondId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BloodType" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="LastPhotoURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="SubmitCount" Type="Int32" />
+    <Property Name="PassCount" Type="Int32" />
+    <Property Name="RejectedCount" Type="Int32" />
+    <Property Name="OFFICE_EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CONTRACT_START_DATE" Type="DateTime" Precision="3" />
+    <Property Name="CONTRACT_END_DATE" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="jianli_Work_Experience">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee_Id" Type="Int32" />
+    <Property Name="Start_Date" Type="DateTime" Precision="0" />
+    <Property Name="End_Date" Type="DateTime" Precision="0" />
+    <Property Name="Company_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Duty" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Leave_Reason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Authenticator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile_Number" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatePerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatePerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeletePerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="STATUS" Type="Int32" />
+    <Property Name="PERSON_ANALYSIS_ID" Type="Int32" />
+    <Property Name="ID_FLEX_NUM" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ProjectPeopleNum">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="year" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="month" Type="Int32" />
+    <Property Name="project" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="number" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ProjectPeopleNum_Area">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="year" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="month" Type="Int32" />
+    <Property Name="project" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="number" Type="Int32" />
+  </EntityType>
+  <EntityType Name="T_etl_employee_info">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="EMPLOYEE_NUMBER" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="EMPLOYEE_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMPLOYEE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sybid" Type="Int32" />
+    <Property Name="qyid" Type="Int32" />
+    <Property Name="qyname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PJ_DESC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_Logs_Teacher">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="logsType" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="logsTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="operName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="operPerson" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="logsContent" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="logsDate" Type="DateTime" Precision="3" />
+    <Property Name="logsLevel" Type="Int32" />
+    <Property Name="operIp" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="exdInt" Type="Int32" />
+    <Property Name="exdStr" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="exdStr1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="exdbigStr" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_PlaceRank">
+    <Key>
+      <PropertyRef Name="p_code" />
+    </Key>
+    <Property Name="p_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="p_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dd_year" Type="Int32" />
+    <Property Name="dd_num" Type="Int32" />
+    <Property Name="dd_area" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="dd_money" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="rn" Type="Int64" />
+  </EntityType>
+  <EntityType Name="T_PlaceSalesNum">
+    <Key>
+      <PropertyRef Name="p_code" />
+    </Key>
+    <Property Name="p_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="p_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="saler_num" Type="Int32" />
+  </EntityType>
+  <EntityType Name="T_ProjectRank">
+    <Key>
+      <PropertyRef Name="project_id" />
+    </Key>
+    <Property Name="project_id" Type="Guid" Nullable="false" />
+    <Property Name="project_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dd_year" Type="Int32" />
+    <Property Name="dd_num" Type="Int32" />
+    <Property Name="dd_area" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="dd_money" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="rn" Type="Int64" />
+    <Property Name="p_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="p_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="j_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="s_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="s_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_SYBRank">
+    <Key>
+      <PropertyRef Name="s_code" />
+    </Key>
+    <Property Name="s_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="s_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dd_year" Type="Int32" />
+    <Property Name="dd_num" Type="Int32" />
+    <Property Name="dd_area" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="dd_money" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="rn" Type="Int64" />
+  </EntityType>
+  <EntityType Name="Teacher_Select">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="User_ORG_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_JOBNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_EJU_WORKTIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TeacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TeacherCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Teacher_ORG_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Teacher_JOBNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StartTime" Type="DateTime" Precision="0" />
+    <Property Name="EndTime" Type="DateTime" Precision="0" />
+    <Property Name="ActualStartTime" Type="DateTime" Precision="0" />
+    <Property Name="ActualEndTime" Type="DateTime" Precision="0" />
+    <Property Name="teachingResult" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_avgnum" Type="Int32" />
+    <Property Name="Teacher_avgnum" Type="Int32" />
+    <Property Name="ljcount1" Type="Int32" />
+    <Property Name="ljcount2" Type="Int32" />
+    <Property Name="ljcount3" Type="Int32" />
+    <Property Name="ljcount4" Type="Int32" />
+    <Property Name="ljcount5" Type="Int32" />
+    <Property Name="ljcount6" Type="Int32" />
+    <Property Name="wccount1" Type="Int32" />
+    <Property Name="wccount2" Type="Int32" />
+    <Property Name="wccount3" Type="Int32" />
+    <Property Name="wccount4" Type="Int32" />
+    <Property Name="wccount5" Type="Int32" />
+    <Property Name="wccount6" Type="Int32" />
+    <Property Name="td1" Type="Int32" />
+    <Property Name="td2" Type="Int32" />
+    <Property Name="td3" Type="Int32" />
+    <Property Name="td4" Type="Int32" />
+    <Property Name="td5" Type="Int32" />
+    <Property Name="td6" Type="Int32" />
+    <Property Name="sf1" Type="Int32" />
+    <Property Name="sf2" Type="Int32" />
+    <Property Name="sf3" Type="Int32" />
+    <Property Name="sf4" Type="Int32" />
+    <Property Name="sf5" Type="Int32" />
+    <Property Name="sf6" Type="Int32" />
+  </EntityType>
+  <EntityType Name="userinfo_expand_record">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="personStatus" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="salesName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="personStatus" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="vipCustomer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="djs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="projectname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="leadSalesName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="jobCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="qyname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="qyrank" Type="Int32" />
+    <Property Name="allrank" Type="Int32" />
+    <Property Name="ddNum" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ddArea" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ddMoney" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="job_short_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Core_Attachment" EntityType="Self.Core_Attachment" />
+    <EntitySet Name="Core_Dict" EntityType="Self.Core_Dict" />
+    <EntitySet Name="Core_Module" EntityType="Self.Core_Module" />
+    <EntitySet Name="Core_Role" EntityType="Self.Core_Role" />
+    <EntitySet Name="Core_RoleModule" EntityType="Self.Core_RoleModule" />
+    <EntitySet Name="Core_User" EntityType="Self.Core_User" />
+    <EntitySet Name="Core_UserArea" EntityType="Self.Core_UserArea" />
+    <EntitySet Name="Core_UserRole" EntityType="Self.Core_UserRole" />
+    <EntitySet Name="ErrorLog" EntityType="Self.ErrorLog" />
+    <EntitySet Name="EvaluationResult" EntityType="Self.EvaluationResult" />
+    <EntitySet Name="HR_AreaLeader_2016_old" EntityType="Self.HR_AreaLeader_2016_old" />
+    <EntitySet Name="HR_Comment" EntityType="Self.HR_Comment" />
+    <EntitySet Name="HR_Course" EntityType="Self.HR_Course" />
+    <EntitySet Name="HR_Employee" EntityType="Self.HR_Employee" />
+    <EntitySet Name="HR_Exam" EntityType="Self.HR_Exam" />
+    <EntitySet Name="HR_Question" EntityType="Self.HR_Question" />
+    <EntitySet Name="HR_Record" EntityType="Self.HR_Record" />
+    <EntitySet Name="HR_SMSInfo" EntityType="Self.HR_SMSInfo" />
+    <EntitySet Name="HR_Teacher" EntityType="Self.HR_Teacher" />
+    <EntitySet Name="HR_Train" EntityType="Self.HR_Train" />
+    <EntitySet Name="pwx_dictionary_type" EntityType="Self.pwx_dictionary_type" />
+    <EntitySet Name="pwx_dictionary_value" EntityType="Self.pwx_dictionary_value" />
+    <EntitySet Name="pwx_level_info" EntityType="Self.pwx_level_info" />
+    <EntitySet Name="pwx_sms_verification_code" EntityType="Self.pwx_sms_verification_code" />
+    <EntitySet Name="pwx_user_energy_consume" EntityType="Self.pwx_user_energy_consume" />
+    <EntitySet Name="pwx_user_energy_recharge" EntityType="Self.pwx_user_energy_recharge" />
+    <EntitySet Name="pwx_user_info" EntityType="Self.pwx_user_info" />
+    <EntitySet Name="pwx_user_photo_info" EntityType="Self.pwx_user_photo_info" />
+    <EntitySet Name="pwx_user_photo_share" EntityType="Self.pwx_user_photo_share" />
+    <EntitySet Name="pwx_user_visit_log" EntityType="Self.pwx_user_visit_log" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="T_cux_hr_all_employee_weixin_v" EntityType="Self.T_cux_hr_all_employee_weixin_v" />
+    <EntitySet Name="T_ReturnWrite" EntityType="Self.T_ReturnWrite" />
+    <EntitySet Name="A_EMPLOYEE_WORK_EXPERIENCE_b" EntityType="Self.A_EMPLOYEE_WORK_EXPERIENCE_b" />
+    <EntitySet Name="A_EMPLOYEE_WORK_EXPERIENCE_h" EntityType="Self.A_EMPLOYEE_WORK_EXPERIENCE_h" />
+    <EntitySet Name="A_EMPLOYEE_WORK_EXPERIENCE_lead" EntityType="Self.A_EMPLOYEE_WORK_EXPERIENCE_lead" />
+    <EntitySet Name="A_EMPLOYEE_WORK_EXPERIENCE_lead_top" EntityType="Self.A_EMPLOYEE_WORK_EXPERIENCE_lead_top" />
+    <EntitySet Name="a_hr_yx_echelon_employee" EntityType="Self.a_hr_yx_echelon_employee" />
+    <EntitySet Name="A_V_SALES_SERVICERECORD" EntityType="Self.A_V_SALES_SERVICERECORD" />
+    <EntitySet Name="A_V_SALES_SERVICERECORD1" EntityType="Self.A_V_SALES_SERVICERECORD1" />
+    <EntitySet Name="A_V_SALES_SERVICERECORD2" EntityType="Self.A_V_SALES_SERVICERECORD2" />
+    <EntitySet Name="Core_UserCity" EntityType="Self.Core_UserCity" />
+    <EntitySet Name="EvaluationResult_20180206" EntityType="Self.EvaluationResult_20180206" />
+    <EntitySet Name="EvaluationResult_New" EntityType="Self.EvaluationResult_New" />
+    <EntitySet Name="HR_AreaLeader" EntityType="Self.HR_AreaLeader" />
+    <EntitySet Name="HR_AreaLeader_old_20170901" EntityType="Self.HR_AreaLeader_old_20170901" />
+    <EntitySet Name="hr_cric_echelon_employee" EntityType="Self.hr_cric_echelon_employee" />
+    <EntitySet Name="hr_cric_echelon_name" EntityType="Self.hr_cric_echelon_name" />
+    <EntitySet Name="HR_CX_Manager_Month_All" EntityType="Self.HR_CX_Manager_Month_All" />
+    <EntitySet Name="HR_CX_Manager_Month_Area" EntityType="Self.HR_CX_Manager_Month_Area" />
+    <EntitySet Name="HR_CX_Manager_Month_Project" EntityType="Self.HR_CX_Manager_Month_Project" />
+    <EntitySet Name="HR_CX_Manager_Quear_All" EntityType="Self.HR_CX_Manager_Quear_All" />
+    <EntitySet Name="HR_CX_Manager_Quear_Area" EntityType="Self.HR_CX_Manager_Quear_Area" />
+    <EntitySet Name="HR_CX_Manager_Year_All" EntityType="Self.HR_CX_Manager_Year_All" />
+    <EntitySet Name="HR_CX_Manager_Year_Area" EntityType="Self.HR_CX_Manager_Year_Area" />
+    <EntitySet Name="HR_CX_Manager_Year_Project" EntityType="Self.HR_CX_Manager_Year_Project" />
+    <EntitySet Name="HR_Data_AreaDDMonthAVGForYear" EntityType="Self.HR_Data_AreaDDMonthAVGForYear" />
+    <EntitySet Name="HR_Data_AreaDDQuarterAVGForYear" EntityType="Self.HR_Data_AreaDDQuarterAVGForYear" />
+    <EntitySet Name="HR_Data_AreaDDYearAVGForYear" EntityType="Self.HR_Data_AreaDDYearAVGForYear" />
+    <EntitySet Name="HR_Data_PeopleDDSumListForYear" EntityType="Self.HR_Data_PeopleDDSumListForYear" />
+    <EntitySet Name="HR_Data_ProjectDDMonthAVGForYear" EntityType="Self.HR_Data_ProjectDDMonthAVGForYear" />
+    <EntitySet Name="HR_Data_ProjectDDQuarterAVGForYear" EntityType="Self.HR_Data_ProjectDDQuarterAVGForYear" />
+    <EntitySet Name="HR_Data_ProjectDDYearAVGForYear" EntityType="Self.HR_Data_ProjectDDYearAVGForYear" />
+    <EntitySet Name="HR_Data_ProjectRaking" EntityType="Self.HR_Data_ProjectRaking" />
+    <EntitySet Name="HR_DD_Manager_Month_All" EntityType="Self.HR_DD_Manager_Month_All" />
+    <EntitySet Name="HR_DD_Manager_Month_Area" EntityType="Self.HR_DD_Manager_Month_Area" />
+    <EntitySet Name="HR_DD_Manager_Month_Project" EntityType="Self.HR_DD_Manager_Month_Project" />
+    <EntitySet Name="HR_DD_Manager_Quear_All" EntityType="Self.HR_DD_Manager_Quear_All" />
+    <EntitySet Name="HR_DD_Manager_Quear_Area" EntityType="Self.HR_DD_Manager_Quear_Area" />
+    <EntitySet Name="HR_DD_Manager_Year_All" EntityType="Self.HR_DD_Manager_Year_All" />
+    <EntitySet Name="HR_DD_Manager_Year_Area" EntityType="Self.HR_DD_Manager_Year_Area" />
+    <EntitySet Name="HR_DD_Manager_Year_Project" EntityType="Self.HR_DD_Manager_Year_Project" />
+    <EntitySet Name="HR_etl_employee_info" EntityType="Self.HR_etl_employee_info" />
+    <EntitySet Name="HR_Teacher_2017" EntityType="Self.HR_Teacher_2017" />
+    <EntitySet Name="HR_Teacher_Select" EntityType="Self.HR_Teacher_Select" />
+    <EntitySet Name="hr_yx_echelon_employee" EntityType="Self.hr_yx_echelon_employee" />
+    <EntitySet Name="hr_yx_echelon_name" EntityType="Self.hr_yx_echelon_name" />
+    <EntitySet Name="jianli_Education_Experience" EntityType="Self.jianli_Education_Experience" />
+    <EntitySet Name="jianli_Employee_Information" EntityType="Self.jianli_Employee_Information" />
+    <EntitySet Name="jianli_Work_Experience" EntityType="Self.jianli_Work_Experience" />
+    <EntitySet Name="ProjectPeopleNum" EntityType="Self.ProjectPeopleNum" />
+    <EntitySet Name="ProjectPeopleNum_Area" EntityType="Self.ProjectPeopleNum_Area" />
+    <EntitySet Name="T_etl_employee_info" EntityType="Self.T_etl_employee_info" />
+    <EntitySet Name="T_Logs_Teacher" EntityType="Self.T_Logs_Teacher" />
+    <EntitySet Name="T_PlaceRank" EntityType="Self.T_PlaceRank" />
+    <EntitySet Name="T_PlaceSalesNum" EntityType="Self.T_PlaceSalesNum" />
+    <EntitySet Name="T_ProjectRank" EntityType="Self.T_ProjectRank" />
+    <EntitySet Name="T_SYBRank" EntityType="Self.T_SYBRank" />
+    <EntitySet Name="Teacher_Select" EntityType="Self.Teacher_Select" />
+    <EntitySet Name="userinfo_expand_record" EntityType="Self.userinfo_expand_record" />
+  </EntityContainer>
+</Schema>

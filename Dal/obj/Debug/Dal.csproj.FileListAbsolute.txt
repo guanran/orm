@@ -1,0 +1,13 @@
+H:\orm_gr\Dal\bin\Debug\Dal.dll.config
+H:\orm_gr\Dal\bin\Debug\Dal.dll
+H:\orm_gr\Dal\bin\Debug\Dal.pdb
+H:\orm_gr\Dal\bin\Debug\EntityFramework.dll
+H:\orm_gr\Dal\bin\Debug\EntityFramework.SqlServer.dll
+H:\orm_gr\Dal\bin\Debug\EntityFramework.xml
+H:\orm_gr\Dal\bin\Debug\EntityFramework.SqlServer.xml
+H:\orm_gr\Dal\bin\Debug\zh-Hans\EntityFramework.resources.dll
+H:\orm_gr\Dal\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+H:\orm_gr\Dal\obj\Debug\Dal.csproj.CopyComplete
+H:\orm_gr\Dal\obj\Debug\Dal.dll
+H:\orm_gr\Dal\obj\Debug\Dal.pdb
+H:\orm_gr\Dal\obj\Debug\Dal.csprojAssemblyReference.cache

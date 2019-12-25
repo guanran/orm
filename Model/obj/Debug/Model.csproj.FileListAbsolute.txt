@@ -1,0 +1,9 @@
+H:\orm_gr\Model\bin\Debug\Model.dll
+H:\orm_gr\Model\bin\Debug\Model.pdb
+H:\orm_gr\Model\bin\Debug\Dal.dll
+H:\orm_gr\Model\bin\Debug\Dal.pdb
+H:\orm_gr\Model\bin\Debug\Dal.dll.config
+H:\orm_gr\Model\obj\Debug\Model.csprojAssemblyReference.cache
+H:\orm_gr\Model\obj\Debug\Model.csproj.CopyComplete
+H:\orm_gr\Model\obj\Debug\Model.dll
+H:\orm_gr\Model\obj\Debug\Model.pdb
