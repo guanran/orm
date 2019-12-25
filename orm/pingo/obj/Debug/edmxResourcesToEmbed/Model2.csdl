@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PGDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="wx_user">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mobile" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="unionid" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="openid" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="identity" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="nick_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="avatarUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="wx_mobile" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="create_time" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="status" Type="SByte" />
+    <Property Name="work_place" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="city_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="city_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="resource" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="device_token" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="isupdate_openid" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="PGDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="wx_user" EntityType="Self.wx_user" />
+  </EntityContainer>
+</Schema>

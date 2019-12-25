@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PGDBModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="wx_user">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mobile" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="unionid" Type="varchar" MaxLength="255" />
+    <Property Name="openid" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="user_name" Type="varchar" MaxLength="255" />
+    <Property Name="password" Type="varchar" MaxLength="255" />
+    <Property Name="identity" Type="varchar" MaxLength="255" />
+    <Property Name="nick_name" Type="varchar" MaxLength="255" />
+    <Property Name="gender" Type="varchar" MaxLength="10" />
+    <Property Name="avatarUrl" Type="varchar" MaxLength="255" />
+    <Property Name="wx_mobile" Type="varchar" MaxLength="255" />
+    <Property Name="create_time" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" />
+    <Property Name="status" Type="tinyint" />
+    <Property Name="work_place" Type="varchar" MaxLength="255" />
+    <Property Name="city_id" Type="varchar" MaxLength="255" />
+    <Property Name="city_name" Type="varchar" MaxLength="255" />
+    <Property Name="resource" Type="varchar" MaxLength="255" />
+    <Property Name="device_token" Type="varchar" MaxLength="255" />
+    <Property Name="isupdate_openid" Type="int" />
+  </EntityType>
+  <EntityContainer Name="PGDBModelStoreContainer">
+    <EntitySet Name="wx_user" EntityType="Self.wx_user" Schema="PGDB" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
